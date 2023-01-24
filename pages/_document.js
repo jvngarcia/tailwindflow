@@ -8,8 +8,12 @@ export default function Document() {
         <Main />
         <NextScript />
       </body>
-      <footer>
-        <p>Footer</p>
+      <footer className='container mx-auto py-6 flex justify-center'>
+        <div className='flex text-'>
+          <p>JVN García</p>
+          <p className='mx-2'>|</p>
+          <p>2021</p>
+        </div>
       </footer>
     </Html>
   )
