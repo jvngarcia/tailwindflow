@@ -1,5 +1,5 @@
+import AdsBanner from '@/components/banners/AdsBanner'
 import MainBanner from '@/components/banners/MainBanner'
-import MainButton from '@/components/buttons/MainButton'
 import Head from 'next/head'
 
 
@@ -18,6 +18,11 @@ export default function Home() {
           title="Busca y comparte todo tipo de componentes creados con tailwind"
           subTitle="Utiliza todos los componentes que necesites de manera GRATUITA"
           textButton="Todos los componentes" />
+        
+        <div className='mt-12 pt-12'>
+          <AdsBanner title="Título" subTitle="SubTítulo" textButton="Botón" linkButton="/" />
+        </div>
+
       </main>
     </>
   )
