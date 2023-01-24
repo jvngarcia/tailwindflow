@@ -2,7 +2,7 @@
 
 export default function AdsBanner({ title, subTitle, textButton, linkButton }){
     return (
-        <div className='bg-slate-100 py-12 rounded'>
+        <div className='bg-indigo-100 py-12 rounded-md'>
             <div className='container mx-auto flex flex-col items-center justify-center py-6'>
                 <h2 className='text-3xl text-slate-700 font-bold'>{ title }</h2>   
                 <p className='text-slate-700 text-center mt-4 text-xl'>{ subTitle }</p>
