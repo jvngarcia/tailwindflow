@@ -9,8 +9,6 @@ import Head from 'next/head'
 
 function Home({ components, categories }) {
 
-  console.log(categories);
-
   return (
     <>
       <Head>
@@ -26,7 +24,8 @@ function Home({ components, categories }) {
         <MainBanner className='my-12 py-12'
           title="Busca y comparte todo tipo de componentes creados con tailwind"
           subTitle="Utiliza todos los componentes que necesites de manera GRATUITA"
-          textButton="Todos los componentes" />
+          textButton="Todos los componentes"
+          linkButton="#componentes" />
         
         <div className='mt-12 pt-12'>
           <AdsBanner title="Título" subTitle="SubTítulo" textButton="Botón" linkButton="/" />
