@@ -5,7 +5,7 @@ export default function MainCard({ mainImage, title, profileImage, profileName }
     return (
         <div>
             <div className='overflow-hidden w-full h-48 bg-indigo-100 flex items-center justify-center rounded-md'>
-                <Image src={ mainImage } width={100} height={100} className="object-cover" alt={ title } />
+                <Image src={ mainImage } width={230} height={230} className="object-cover" alt={ title } />
             </div>
             <div className='flex mt-3 items-center'>
                 <div className='rounded-full w-10 h-10 bg-indigo-100 overflow-hidden flex justify-center items-center'>
