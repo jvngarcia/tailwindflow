@@ -6,8 +6,29 @@ import MainCardsGrid from '@/components/grids/MainCardsGrid'
 import SmallCategoriesGrid from '@/components/grids/SmallCategoriesGrid'
 import { supabase } from '@/lib/supabaseClient'
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
 
 function Home({ components, categories }) {
+
+
+  const [ categorySelected, setCategorySelected ] = useState( 'all' );
+  const [ searchComponents, setSearchComponents ] = useState( 'all' );
+
+
+  const getComponents = async ( id ) => {
+
+    if( id == 'all' ){
+      let { data: search_component } = await supabase.from('components').select()
+      return setSearchComponents( search_component );
+    }
+
+    let { data: search_component } = await supabase.from('components').select().eq('category', id )
+    return setSearchComponents( search_component );
+  }
+
+  useEffect(() => {
+    getComponents( categorySelected )
+  }, [categorySelected])
 
   return (
     <>
@@ -30,13 +51,17 @@ function Home({ components, categories }) {
         <div className='mt-12 pt-12'>
           <AdsBanner title="Título" subTitle="SubTítulo" textButton="Botón" linkButton="/" />
           
-          <SmallCategoriesGrid categories={ categories }  />
+          <SmallCategoriesGrid categories={ categories } setCategorySelected={ setCategorySelected }  />
           
-          <MainCardsGrid components={ components } />
+
+          { categorySelected != 'all' ? 
+            <MainCardsGrid components={ searchComponents } /> :
+            <MainCardsGrid components={ components } />  
+          }
 
 
           {
-            components.length > 6 && 
+            components.length >= 6 && 
               <div className='flex justify-center my-12 py-12'>
                 <TransparentButton>Ver más</TransparentButton>
               </div> 
