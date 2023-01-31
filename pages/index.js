@@ -34,9 +34,13 @@ function Home({ components, categories }) {
           
           <MainCardsGrid components={ components } />
 
-          <div className='flex justify-center my-12 py-12'>
-            <TransparentButton>Ver más</TransparentButton>
-          </div>
+
+          {
+            components.length > 6 && 
+              <div className='flex justify-center my-12 py-12'>
+                <TransparentButton>Ver más</TransparentButton>
+              </div> 
+          }
 
         </div>
 
