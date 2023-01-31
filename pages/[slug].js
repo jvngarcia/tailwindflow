@@ -72,9 +72,9 @@ export default function Componente({ components, component, category }) {
                     <MainCardsGrid components={ components } />
                     
                     {
-                        components.length > 6 && 
+                        components.length == 6 && 
                             <div className='flex justify-center my-12 py-12'>
-                                <TransparentLink href="/">Ver más</TransparentLink>
+                                <TransparentLink href="/#componentes">Ver más</TransparentLink>
                             </div> 
                     }
 
