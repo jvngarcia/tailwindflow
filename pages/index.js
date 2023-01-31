@@ -4,25 +4,32 @@ import MainBanner from '@/components/banners/MainBanner'
 import TransparentButton from '@/components/buttons/TransparentButton'
 import MainCardsGrid from '@/components/grids/MainCardsGrid'
 import SmallCategoriesGrid from '@/components/grids/SmallCategoriesGrid'
+import Loader from '@/components/loader/Loader'
 import { supabase } from '@/lib/supabaseClient'
 import Head from 'next/head'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 function Home({ components, categories }) {
 
 
   const [ categorySelected, setCategorySelected ] = useState( 'all' );
-  const [ searchComponents, setSearchComponents ] = useState( 'all' );
+  const [ searchComponents, setSearchComponents ] = useState( components );
+  const [ loader, setLoader ] = useState( false );
 
 
   const getComponents = async ( id ) => {
 
+    setLoader( true );
+
     if( id == 'all' ){
       let { data: search_component } = await supabase.from('components').select()
+      setLoader( false );
       return setSearchComponents( search_component );
     }
 
     let { data: search_component } = await supabase.from('components').select().eq('category', id )
+    setLoader( false );
     return setSearchComponents( search_component );
   }
 
@@ -45,23 +52,36 @@ function Home({ components, categories }) {
         <MainBanner className='my-12 py-12'
           title="Busca y comparte todo tipo de componentes creados con tailwind"
           subTitle="Utiliza todos los componentes que necesites de manera GRATUITA"
-          textButton="Todos los componentes"
+          // textButton="Todos los componentes"
           linkButton="#componentes" />
         
         <div className='mt-12 pt-12'>
-          <AdsBanner title="Título" subTitle="SubTítulo" textButton="Botón" linkButton="/" />
+          {/* <AdsBanner title="Título" subTitle="SubTítulo" textButton="Botón" linkButton="/" /> */}
           
           <SmallCategoriesGrid categories={ categories } setCategorySelected={ setCategorySelected }  />
           
 
-          { categorySelected != 'all' ? 
-            <MainCardsGrid components={ searchComponents } /> :
-            <MainCardsGrid components={ components } />  
+          {
+            loader ?
+              <div className='flex justify-center mt-12'>
+                <Loader />
+              </div> :
+              
+              searchComponents.length > 0 ? 
+                <MainCardsGrid components={ searchComponents } /> :
+                <div className='mt-6 flex justify-center text-slate-700'>
+                  <div className='text-center'>
+                    <Image src="/images/not_found.png" width={800} height={ 800 }/>
+                    <p className='mt-4'>No se han encontrado resultados</p>
+                  </div>
+                </div>
+            
           }
+          
 
 
           {
-            components.length >= 6 && 
+            searchComponents.length >= 6 && 
               <div className='flex justify-center my-12 py-12'>
                 <TransparentButton>Ver más</TransparentButton>
               </div> 
