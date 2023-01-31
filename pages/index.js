@@ -51,12 +51,12 @@ function Home({ components, categories }) {
 
         <MainBanner className='my-12 py-12'
           title="Busca y comparte todo tipo de componentes creados con tailwind"
-          subTitle="Utiliza todos los componentes que necesites de manera GRATUITA"
-          // textButton="Todos los componentes"
+          subTitle="Utiliza todos los componentes que necesites de manera GRATUITA y sin necesidad de registrarte 🤯"
+          textButton="Todos los componentes 👇"
           linkButton="#componentes" />
         
         <div className='mt-12 pt-12'>
-          {/* <AdsBanner title="Título" subTitle="SubTítulo" textButton="Botón" linkButton="/" /> */}
+          <AdsBanner title="¿Quieres aportar al proyecto?" subTitle="Puedes dejar una solicitud, reporte de error o cualquier información en el apartado Issues." textButton="👉 Solicita 👈" linkButton="https://github.com/jvngarcia/tailwindflow/issues" />
           
           <SmallCategoriesGrid categories={ categories } setCategorySelected={ setCategorySelected }  />
           
