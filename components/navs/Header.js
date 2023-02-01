@@ -12,7 +12,7 @@ export default function Header(){
                 </Link>
                 <nav className='flex items-center text-slate-700'>
                     <Link href="/#componentes" className='ml-5 hover:text-slate-900'>Componentes</Link>
-                    <a href="#" className='ml-5 hover:text-slate-900'>Generador de gradientes</a>
+                    {/* <a href="#" className='ml-5 hover:text-slate-900'>Generador de gradientes</a> */}
                     <span className="ml-5">|</span>
                     <a href="https://github.com/jvngarcia/tailwindflow" target="_blank" className='ml-5 hover:text-slate-900 flex items-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="29" height="28" viewBox="0 0 29 28" fill="none">
