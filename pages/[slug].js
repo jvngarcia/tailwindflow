@@ -1,12 +1,11 @@
 import ColorfulBackground from "@/components/backgrounds/ColorfulBackground";
 import MainBanner from "@/components/banners/MainBanner";
 import MainCardsGrid from "@/components/grids/MainCardsGrid";
-import TransparentLink from "@/components/links/TransparentLink";
-import SmallCategories from "@/components/buttons/SmallCategories";
 import { supabase } from "@/lib/supabaseClient";
 import Head from "next/head";
 import Image from "next/image";
 import MainMarkdown from "@/components/markdown/MainMarkdown";
+import SmallCategoriesLink from "@/components/links/SmallCategoriesLink";
 
 
 export default function Componente({ components, component, category }) {
@@ -44,12 +43,12 @@ export default function Componente({ components, component, category }) {
                             </div>
                             <div className='ml-3 w-full truncate'>
                                 <h5 className='text-slate-700 font-semibold text-lg truncate'>JVN García</h5>
-                                <p className='text-slate-700 truncate text-sm'>Componentes: 5</p>
+                                <p className='text-slate-700 truncate text-sm'>FullStack Developer</p>
                             </div>
                         </div>
 
                         <div className='flex justify-end mt-3 items-center'>
-                            <SmallCategories className="w-40">{ category.name }</SmallCategories>
+                            <SmallCategoriesLink href={ `/?category=${ category.id }` } className="w-40">{ category.name }</SmallCategoriesLink>
                         </div>
 
                         <div className='overflow-hidden w-full h-96 bg-indigo-100 flex items-center justify-center rounded-md'>
@@ -70,13 +69,6 @@ export default function Componente({ components, component, category }) {
                 <div className='mt-6'>
                 
                     <MainCardsGrid components={ components } />
-                    
-                    {
-                        components.length == 6 && 
-                            <div className='flex justify-center my-12 py-12'>
-                                <TransparentLink href="/#componentes">Ver más</TransparentLink>
-                            </div> 
-                    }
 
                 </div>
 
@@ -87,9 +79,9 @@ export default function Componente({ components, component, category }) {
 
 
 export async function getServerSideProps(context) {
-
+    
     let { data: component } = await supabase.from( 'components' ).select().eq( 'slug', context.params.slug )
-    let { data: category } = await supabase.from( 'categories' ).select( 'name' ).eq( 'id', component[0].category )
+    let { data: category } = await supabase.from( 'categories' ).select( 'id, name' ).eq( 'id', component[0].category )
     let { data: components } = await supabase.from( 'components' ).select().eq( 'category', component[0].category ).neq( 'id', component[0].id ).range(0, 6)
     
     component = component[0] ?? null;

@@ -10,27 +10,28 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
-function Home({ components, categories }) {
+function Home({  categories, category = null }) {
 
 
-  const [ categorySelected, setCategorySelected ] = useState( 'all' );
-  const [ searchComponents, setSearchComponents ] = useState( components );
+  const [ categorySelected, setCategorySelected ] = useState( category ?? 'all' );
+  const [ searchComponents, setSearchComponents ] = useState( [] );
   const [ loader, setLoader ] = useState( false );
 
 
-  const getComponents = async ( id ) => {
+  const getComponents = async ( slug ) => {
 
     setLoader( true );
 
-    if( id == 'all' ){
+    if( slug == 'all' ){
       let { data: search_component } = await supabase.from('components').select()
       setLoader( false );
-      return setSearchComponents( search_component );
+      return setSearchComponents( search_component ?? [] );
     }
 
-    let { data: search_component } = await supabase.from('components').select().eq('category', id )
+    // TODO: Mejorar para usar slug en vez de un ID
+    let { data: search_component } = await supabase.from('components').select().eq('category', slug )
     setLoader( false );
-    return setSearchComponents( search_component );
+    return setSearchComponents( search_component ?? [] );
   }
 
   useEffect(() => {
@@ -80,12 +81,12 @@ function Home({ components, categories }) {
           
 
 
-          {
+          {/* {
             searchComponents.length >= 6 && 
               <div className='flex justify-center my-12 py-12'>
                 <TransparentButton>Ver más</TransparentButton>
               </div> 
-          }
+          } */}
 
         </div>
 
@@ -96,14 +97,16 @@ function Home({ components, categories }) {
 
 
 
-export async function getServerSideProps() {
-  let { data: components } = await supabase.from('components').select()
-  let { data: categories } = await supabase.from('categories') .select()
+export async function getServerSideProps(context) {
+
+  // get route parameter
+  const { category } = context.query
+  let { data: categories } = await supabase.from('categories').select()
 
   return {
     props: {
-      components,
-      categories
+      categories,
+      category: category ?? null
     },
   }
 }
