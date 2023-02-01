@@ -7,7 +7,7 @@ export default function AdsBanner({ title, subTitle, textButton, linkButton }){
                 <h2 className='text-3xl text-slate-700 font-bold'>{ title }</h2>   
                 <p className='text-slate-700 mt-4 text-xl'>{ subTitle }</p>
                 <div className="mt-7">
-                    <a href={ linkButton } target="_blank" className='mt-12 bg-slate-700 text-white py-3 px-6 rounded-lg hover:bg-slate-900'>{ textButton }</a>
+                    <a href={ linkButton } target="_blank" className='mt-12 bg-slate-700 text-white py-3 px-6 rounded-lg hover:bg-slate-900' rel="noreferrer">{ textButton }</a>
                 </div>
             </div>
         </div>
