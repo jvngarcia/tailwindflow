@@ -2,7 +2,7 @@ import Link from "next/link";
 import MainCard from "../cards/MainCard";
 
 
-export default function MainCardsGrid({ components, id = "componentes" }){
+export default function MainCardsGrid({ components, id = "components" }){
     return (
         <div id={ id } className='grid lg:grid-cols-4 md:grid-cols-3 mt-6 gap-6'>
             { components && components.map( (component, index) => ( 

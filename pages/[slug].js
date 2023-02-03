@@ -13,7 +13,7 @@ export default function Componente({ components, component, category }) {
     const copyCode = () => {
         navigator.clipboard.writeText(component.component);
 
-        alert("Copiado al portapapeles");
+        alert("Copied to clipboard");
     }
 
 

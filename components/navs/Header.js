@@ -11,7 +11,7 @@ export default function Header(){
                     <Image src="/images/logotipo.png" alt="Logotipo de tailwindflow" width={ 200 } height={ 200 } />
                 </Link>
                 <nav className='flex items-center text-slate-700'>
-                    <Link href="/#componentes" className='ml-5 hover:text-slate-900'>Componentes</Link>
+                    <Link href="/#componentes" className='ml-5 hover:text-slate-900'>Components</Link>
                     {/* <a href="#" className='ml-5 hover:text-slate-900'>Generador de gradientes</a> */}
                     <span className="ml-5">|</span>
                     <a href="https://github.com/jvngarcia/tailwindflow" target="_blank" className='ml-5 hover:text-slate-900 flex items-center' rel="noreferrer">

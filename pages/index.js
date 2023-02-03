@@ -42,7 +42,7 @@ function Home({  categories, category = null }) {
     <>
       <Head>
         <title>TailwindFlow</title>
-        <meta name="description" content="Busca y comparte todo tipo de componentes en tailwind" />
+        <meta name="description" content="Search and share all kinds of components created with tailwind" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/tailwindflow-favicon.png" />
       </Head>
@@ -51,13 +51,13 @@ function Home({  categories, category = null }) {
         <ColorfulBackground />
 
         <MainBanner className='my-12 py-12'
-          title="Busca y comparte todo tipo de componentes creados con tailwind"
-          subTitle="Utiliza todos los componentes que necesites de manera GRATUITA y sin necesidad de registrarte 🤯"
-          textButton="Todos los componentes 👇"
-          linkButton="#componentes" />
+          title="Search and share all kinds of components created with tailwind"
+          subTitle="Use all the components you need for FREE and without the need to register 🤯"
+          textButton="All components 👇"
+          linkButton="#components" />
         
         <div className='mt-12 pt-12'>
-          <AdsBanner title="¿Quieres aportar al proyecto?" subTitle="Puedes dejar una solicitud, reporte de error o cualquier información en el apartado Issues." textButton="👉 Solicita 👈" linkButton="https://github.com/jvngarcia/tailwindflow/issues" />
+          <AdsBanner title="Do you want to contribute to the project?" subTitle="You can leave a request, bug report or any information in the Issues section." textButton="👉 Request 👈" linkButton="https://github.com/jvngarcia/tailwindflow/issues" />
           
           <SmallCategoriesGrid categories={ categories } setCategorySelected={ setCategorySelected }  />
           
