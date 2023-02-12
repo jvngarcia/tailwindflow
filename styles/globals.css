@@ -7,3 +7,7 @@ html {
     line-height: 1.5;
     scroll-behavior: smooth;
 }
+
+#main-background {
+    background: linear-gradient(180deg,transparent,hsla(0,0%,95%,.29) 47.39%,#fff),linear-gradient(90deg,#f9ddf1 .07%,#e5e1ff 16.73%,#daedff 34.48%,#e2f4e3 49.98%,#ebf5d8 66.12%,#faf2da 81.95%,#fbe5d8 99.9%);
+}
