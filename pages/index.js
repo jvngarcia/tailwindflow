@@ -73,7 +73,7 @@ function Home({  categories, category = null }) {
                 <div className='mt-6 flex justify-center text-slate-700'>
                   <div className='text-center'>
                     <Image src="/images/not_found.png" width={800} height={ 800 } alt="SIn resultados" />
-                    <p className='mt-4'>No se han encontrado resultados</p>
+                    <p className='mt-4'>No components found</p>
                   </div>
                 </div>
             
