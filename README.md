@@ -1,6 +1,6 @@
 # TailwindFlow
 
-Un aplicativo web de código abierto para todas aquellas personas que deseen componentes rápidos y sencillos para todos sus proyectos con tailwind.
+Website where I store and share all my tailwindcss components
 
 ## Images
 1000 x 600
