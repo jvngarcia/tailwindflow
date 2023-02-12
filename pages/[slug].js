@@ -38,8 +38,8 @@ export default function Componente({ components, component, category }) {
                     <div className="grid md:grid-cols-2 gap-6">
 
                         <div className='flex mt-3 items-center'>
-                            <div className='rounded-full w-10 h-10 bg-indigo-100 overflow-hidden flex justify-center items-center'>
-                                <Image src="/tailwindflow-favicon.png" width={100} height={100} className="object-cover" alt="JVN García" />
+                            <div className='rounded-full w-10 h-10 overflow-hidden flex justify-center items-center'>
+                                <Image src="/images/profile-jvngarcia.jpeg" width={100} height={100} className="object-cover" alt="JVN García" />
                             </div>
                             <div className='ml-3 w-full truncate'>
                                 <h5 className='text-slate-700 font-semibold text-lg truncate'>JVN García</h5>
