@@ -51,7 +51,7 @@ export default function Componente({ components, component, category }) {
                             <SmallCategoriesLink href={ `/?category=${ category.id }` } className="w-40">{ category.name }</SmallCategoriesLink>
                         </div>
 
-                        <div className='overflow-hidden w-full h-96 bg-indigo-100 flex items-center justify-center rounded-md'>
+                        <div className='overflow-hidden w-full h-96 bg-white flex items-center justify-center rounded-md'>
                             <Image src={ component.image } width={400} height={400} className="object-cover" alt={ component.name } />
                         </div>
 

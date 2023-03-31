@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function MainCard({ mainImage, title, profileImage, profileName }){
     return (
         <div>
-            <div className='overflow-hidden w-full h-48 bg-indigo-200 flex items-center justify-center rounded-md'>
+            <div className='overflow-hidden w-full h-48 bg-white flex items-center justify-center rounded-md'>
                 <Image src={ mainImage } width={310} height={230} className="object-cover" alt={ title } />
             </div>
             <div className='flex mt-3 items-center'>
